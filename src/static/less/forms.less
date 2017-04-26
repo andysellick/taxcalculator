@@ -1,0 +1,282 @@
+/* --forms and form elements */
+
+#tc {
+	@formerror: #ff6868;
+
+    //note that iphone requires a font-size of 100% set manually on input elements to prevent the 'zoom' problem when focussing
+    .form {
+        fieldset {
+            border:0;
+        }
+        legend {
+            margin-bottom:@formElementSpacing;
+        }
+        label,
+        .faux_label {
+			display:block;
+            padding:0 0 @formElementSpacing 0;
+            .border-box();
+            .font-albertbold();
+            font-size:106.25%;
+            color:@black;
+        }
+
+        &.whitelabels {
+	        label,
+	        .faux_label {
+				color:@white;
+			}
+		}
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        input[type="file"],
+        input[type="url"],
+        select,
+        textarea {
+            padding:0.5em 0.4em;
+            margin:0 0 @formElementSpacing @formElementMargin;
+            width:@inputWidth;
+            height:2.2em;
+            .border-box();
+            background:#FFFFFF;
+            border:solid 1px #FFFFFF;
+            .border-radius( 5px );
+            color:#000000;
+            font-size:100%;
+            .font-albertbold();
+        }
+        textarea,
+        select[multiple="multiple"]{
+            height:80px;
+        }
+
+        .errormsg {
+            display:none;
+            .border-box();
+            color:@formerror;
+            font-size:90%;
+        }
+        .helptext {
+            display:block;
+            width:@helpWidth;
+            margin-left:@labelWidth + @formElementMargin;
+        }
+        
+        .buttons {
+            padding-left:@labelWidth + @formElementMargin;
+        }
+        
+        .field {
+            .clearfix();
+
+	        .styledselect {
+				position:relative;
+	            margin:0 0 @formElementSpacing @formElementMargin;
+				background:@white;
+				border:solid 1px @white;
+				.border-radius( 5px );
+	            .border-box();
+				overflow: hidden;
+				cursor:pointer;
+
+				&:after {
+					content: "\e904";
+					z-index:1;
+					position:absolute;
+					top:0;
+					right:0;
+					height:100%;
+					padding:0 0.3em;
+					.border-radius( 0 5px 5px 0 );
+					background:@greyLight;
+					font-family:icons;
+					font-size:200%;
+					line-height:1.4em;
+					color:@blue;
+				}
+	
+				select {
+					position:relative;
+					z-index:2;
+					margin:0;
+					width:150%;
+					background: transparent;
+					border:0;
+					cursor:pointer;
+					-webkit-appearance: none;
+					height:2.1em;
+					option {
+						.font-albertbold();
+						-webkit-appearance: none;
+					}
+					&:focus {
+						z-index:1;
+						width:100%;
+					}
+				}
+			}
+			.styledinput {
+				position:relative;
+	            margin:0 0 @formElementSpacing @formElementMargin;
+				background:@white;
+				border:solid 1px #FFFFFF;
+				.border-radius( 5px );
+	
+				&:before {
+					content:"\a3"; //pound sign
+					position:absolute;
+					left:0;
+					top:0;
+					height:100%;
+					padding:0 0 0 0.4em;
+					line-height:1.7em;
+					.font-albertbold();
+					font-size:130%;
+				}
+
+				input {
+					margin:0;
+					padding-left:1.5em;
+					border:0;
+				}
+				
+				&.icon-green {
+					&:before {
+						color:@green;
+					}
+				}
+				&.icon-no {
+					&:before {
+						display:none;
+					}
+				}
+			}
+
+            &.large {
+		        label,
+		        .faux_label {
+		            font-size:137.5%;
+				}
+		        input[type="text"],
+		        input[type="number"],
+		        input[type="email"],
+		        input[type="password"],
+		        input[type="search"],
+		        input[type="file"],
+		        input[type="url"],
+		        select,
+		        textarea {
+					padding-top:0.4em;
+					padding-bottom:0.4em;
+		            font-size:137.5%;
+				}
+
+				.styledinput {
+					&:before {
+						padding:0 0 0 0.3em;
+						line-height:2.1em;
+						font-size:140%;
+					}
+					input {
+						padding-left:1.2em;
+					}
+				}
+			}
+
+            &.error {
+                input[type="text"],
+                input[type="number"],
+                input[type="email"],
+                input[type="password"],
+                input[type="search"],
+                input[type="file"],
+                input[type="url"],
+                select,
+                textarea,
+				.styledinput,
+				.styledselect {
+                    border-color:@formerror;
+                    &:before {
+						color:@formerror;
+					}
+                }
+                .styledselect select {
+					border:0;
+				}
+                .errormsg {
+                    display:block;
+                }
+                &.radiocheck {
+					.label {
+						&:before {
+							border:solid 1px @formerror;
+						}
+					}
+				}
+            }
+            &.radiocheck {
+                position:relative;
+                label {
+                    position:relative;
+                    width:100%;
+                    overflow:hidden;
+                    cursor:pointer;
+				}
+				.label {
+                    padding-left:30px;
+                    &:before {
+						content:"";
+						position:absolute;
+						top:1px;
+						left:1px;
+						width:17px;
+						height:17px;
+						background:@white;
+						border:solid 1px @white;
+						.border-radius( 50px );
+					}
+
+                    &.selected {
+						&:before {
+							background:@green;
+							border-color:@green;
+						}
+					}
+                }
+                input[type="checkbox"],
+                input[type="radio"]{
+					.totallyinvisible;
+                }
+                .errormsg {
+                    clear:left;
+                }
+                &.horizontal {
+                    .label {
+                        float:left;
+                        width:auto;
+                        margin-top:0.5em;
+                        padding-right:1em;
+                        margin-right:1em;
+                    }
+                }
+            }
+            &.required {
+                label:after {
+                    content:" *";
+                }
+            }
+        }
+    }
+
+	/* hide the spinner controls on number inputs */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+	}
+}

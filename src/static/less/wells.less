@@ -1,0 +1,23 @@
+/* --wells */
+#tc {
+    .mywell {
+		padding:30px 0;
+        .border-box(); //just in case anyone tries to apply a well to a grid element
+
+        &.bg-blue {
+        	background:@blue;
+		}
+
+		&.bg-grey {
+			background:@greyLight;
+		}
+
+		&.bg-white {
+			background:@white;
+		}
+		
+		&.nopadbot {
+			padding-bottom:0;
+		}
+    }
+}

@@ -1,0 +1,33 @@
+/* --variables */
+
+    /* colours */
+
+    @black: #000000;
+    @white: #FFFFFF;
+
+    @blue: #3661bb;
+	@blueLight: #0098cd;
+	@green: #349d2d;
+	@greenLight: #a5d002;
+	@pink: #c22d76;
+	@greyLight: #f5f5f5;
+	@greyDark: #808080;
+
+    /* forms */
+
+    @labelWidth: 100%;
+    @inputWidth: 100%;
+    @formElementMargin: 0; //gap between label and input
+    @formElementSpacing: 0.5em; //spacing beneath input
+    @helpWidth: @inputWidth;
+
+    /* grid */
+
+    @gridWidth: 900px; //set to maximum page width required
+    @gridSpacing: 40; //spacing between columns required
+    @numCols: 12; //number of columns required
+    @fixedspacing: 20px; //used for fixed spacing grid
+
+    @percentColGutter: percentage(@gridSpacing / @gridWidth);
+    @percentColWidth: percentage(((@gridWidth - (@gridSpacing * (@numCols - 1))) / @numCols) / @gridWidth);
+    @fixedColWidth: percentage((@gridWidth / @numCols) / @gridWidth);

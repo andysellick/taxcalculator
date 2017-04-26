@@ -1,0 +1,142 @@
+/* --page */
+    /* this file should contain html and body styles, and any other styles that relate to the general wrapping of every page e.g. a pagewrapping element */
+
+	/* this awful CSS structure is necessary to fit in with the awful CSS structure of the existing site, unfortunately */
+	#tc {
+        font-family:Arial, Verdana, sans-serif;
+        font-size: 16px;
+        color:#333333;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+		.hero {
+			background:url('../img/hero.jpg') no-repeat 50% 0;
+			background-size:cover;
+			text-align:center;
+			color:@white;
+		}
+		.herotxt {
+			padding:200px 18% 0 18%;
+		}
+		.halfgrid {
+			display:table;
+			width:100%;
+			table-layout:fixed;
+			.col {
+				display:table-cell;
+				width:50%;
+			}
+		}
+		
+		.status {
+			cursor:pointer;
+			.font-albertbold();
+			font-size:106.25%;
+			
+			input[type="radio"]{
+				.totallyinvisible;
+			}
+
+			.icon {
+				display:block;
+				width:140px;
+				height:140px;
+				margin:20px auto;
+				.border-radius( 200px );
+				background-image:url('../img/icon-status.png');
+				background-repeat:no-repeat;
+			}
+
+			&.employed {
+				.icon {
+					background-position:0 0;
+				}
+				//&:hover,
+				&.selected {
+					.icon {
+						background-position:0 -140px;
+					}
+				}
+			}
+			&.selfemployed {
+				.icon {
+					background-position:-140px 0;
+				}
+				//&:hover,
+				&.selected {
+					.icon {
+						background-position:-140px -140px;
+					}
+				}
+			}
+		}
+
+		.social {
+			padding:3em 0 1em 0;
+			a {
+				display:inline-block;
+				width:2em;
+				color:@white;
+				text-decoration:none;
+			}
+
+			&.circles {
+				padding:0;
+				a {
+					margin:0 0.2em;
+					height:2em;
+					line-height:2.2em;
+					background:@blue;
+					.border-radius( 100px );
+					text-align:center;
+					color:@white;
+					text-decoration:none;
+				}
+			}
+		}
+
+		.results {
+			overflow:hidden;
+			.border-radius( 5px );
+			.results-body {
+				padding-bottom:10px;
+				background:@white;
+				.font-albertbold();
+				line-height:1.5em;
+				dt {
+					padding:6px 30px 0 30px;
+					font-size:106.25%;
+					&:first-of-type {
+						padding-top:20px;
+						padding-bottom:10px;
+						background:@green;
+						color:@black;
+						font-size:106.25%;
+						.font-albertbold();
+					}
+				}
+				dd {
+					padding:0 30px 6px 30px;
+					font-size:137.5%;
+					&:first-of-type {
+						padding-bottom:20px;
+						margin-bottom:10px;
+						background:@green;
+						font-size:200%;
+						color:@white;
+						.font-albertbold();
+						span {
+							font-size:70%;
+							//line-height:2em;
+						}
+					}
+				}
+			}
+		}
+		
+		.graph {
+			max-width:440px;
+			margin:0 auto;
+		}
+
+	}
